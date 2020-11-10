@@ -2,7 +2,7 @@
 
 .app {
   background-color: #252d4a;
-  width: 600px;
+  width: 800px;
   height: min-content;
   border-radius: 15px;
   padding: 20px;
@@ -13,7 +13,7 @@
 }
 
 .app-img {
-  width: 600px;
+  width: 800px;
   margin: 20px;
 }
 
@@ -38,6 +38,19 @@
 .question-count span {
   font-size: 32px;
   font-family: 'Permanent Marker', cursive;
+}
+
+.question-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.question-img img {
+  width: 75%;
+  border-radius: 15px;
+  border: 8px solid #19b43f;
 }
 
 .question-text {
@@ -73,9 +86,16 @@ button {
   font-weight: bold;
   justify-content: center;
   align-items: center;
-  border: 5px solid #234668;
+  border: 8px solid #234668;
   cursor: pointer;
   font-family: 'Permanent Marker', cursive;
+  margin: 2px;
+}
+
+.answer-choice {
+  height: 200px;
+  background-size: 400px;
+  background-position: center;
 }
 
 .correct {
@@ -87,7 +107,8 @@ button {
 }
 
 button:hover {
-  background-color: #555e7d;
+  background-color: #c20000;
+  border-color: #19b43f;
 }
 
 button:focus {

@@ -1,5 +1,17 @@
 import './App.css';
+import appImg from './assets/app-img.png';
 import React, { useState } from 'react';
+
+import q01q  from './assets/questions/01/q.png';
+import q01a1 from './assets/questions/01/a1.png';
+import q01a2 from './assets/questions/01/a2.png';
+import q01a3 from './assets/questions/01/a3.png';
+import q01a4 from './assets/questions/01/a4.png';
+import q02q  from './assets/questions/02/q.png';
+import q02a1 from './assets/questions/02/a1.png';
+import q02a2 from './assets/questions/02/a2.png';
+import q02a3 from './assets/questions/02/a3.png';
+import q02a4 from './assets/questions/02/a4.png';
 
 function getRandomSubarray(arr, size) {
   var shuffled = arr.slice(0)
@@ -17,39 +29,23 @@ function App() {
 
 	const questionSet = [
 		{
-			questionText: 'What is the capital of France?',
+      questionText: 'Identifica qual a imagem correspondente a um meio urbano.',
+      questionImg: q01q,
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ img: q01a1, isCorrect: false },
+				{ img: q01a2, isCorrect: true },
+				{ img: q01a3, isCorrect: false },
+				{ img: q01a4, isCorrect: false },
 			],
 		},
 		{
-			questionText: 'Who is CEO of Tesla?',
+      questionText: 'Identifica qual a imagem correspondente a um meio rural.',
+      questionImg: q02q,
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'The iPhone was created by which company?',
-			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'How many Harry Potter books are there?',
-			answerOptions: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
+				{ img: q02a1, isCorrect: false },
+				{ img: q02a2, isCorrect: false },
+				{ img: q02a3, isCorrect: false },
+				{ img: q02a4, isCorrect: true },
 			],
 		},
   ];
@@ -86,35 +82,54 @@ function App() {
   };
 
   if (isStarted) {
-    return (
-      <div className='app'>
-        {showScore ? (
-          <div className='score-section'>
-            {score > questions.length/2 &&
-              <>Parab&eacute;ns!</>
-            } Acertaste {score} em {questions.length}!
+    if (showLastAnswer) {
+      return (
+        <div className='app'>
+          <div className='question-section'>
+            <div className='question-count'>
+              <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
+            </div>
+            <div className='question-img'>
+              <img src={questions[currentQuestion].questionImg} />
+            </div>
+            <div className='question-text'>{questions[currentQuestion].questionText}</div>
           </div>
-        ) : (
-          <>
-            <div className='question-section'>
-              <div className='question-count'>
-                <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
+          <div className='answer-section'>
+            <button onClick={() => handleNextQuestionClick()}>Pr&oacute;xima pergunta!</button>
+          </div>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className='app'>
+          {showScore ? (
+            <div className='score-section'>
+              {score > questions.length/2 &&
+                <>Parab&eacute;ns!</>
+              } Acertaste {score} em {questions.length}!
+            </div>
+          ) : (
+            <>
+              <div className='question-section'>
+                <div className='question-count'>
+                  <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
+                </div>
+                <div className='question-img'>
+                  <img src={questions[currentQuestion].questionImg} />
+                </div>
+                <div className='question-text'>{questions[currentQuestion].questionText}</div>
               </div>
-              <div className='question-text'>{questions[currentQuestion].questionText}</div>
-            </div>
-            <div className='answer-section'>
-              {showLastAnswer ? (
-                <button onClick={() => handleNextQuestionClick()}>Pr&oacute;xima pergunta!</button>
-              ) : (
-                questions[currentQuestion].answerOptions.map((answerOption) => (
-                  <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-                ))
-              )}
-            </div>
-          </>
-        )}
-      </div>
-    );
+              <div className='answer-section'>
+                {questions[currentQuestion].answerOptions.map((answerOption) => (
+                  <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} style={{backgroundImage: `url(${answerOption.img})`}} />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      );
+    }
   }
   else {
     return (
@@ -132,7 +147,7 @@ function App() {
             <button onClick={() => setStarted(true)}>Começar!</button>
           </div>
         </div>
-        <img className='app-img' src='nei2020.PNG'></img>
+        <img className='app-img' src={appImg} />
       </>
     );
   }

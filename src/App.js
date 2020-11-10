@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 
@@ -119,10 +118,22 @@ function App() {
   }
   else {
     return (
-      <div className='app'>
-        Bem vindo!
-        <button onClick={() => setStarted(true)}>Começar!</button>
-      </div>
+      <>
+        <div className='app'>
+          <div className='question-section'>
+            <div className='question-count'>
+              <span>Bem-vindo ao quiz V&ecirc; a Terra!</span>
+            </div>
+            <div className='question-text'>
+              Aqui vais poder testar os teus conhecimentos sobre a forma como os satélites veem a Terra. Os satélites são muito úteis porque nos permitem obter imagens da Terra, no entanto, eles não veem a Terra como nós. Há várias tecnologias de captura de imagem que fazem com que as imagens de satélite sejam diferentes das fotografias que conhecemos. Achas que consegues adivinhar que imagem de satélite corresponde a que zona?
+            </div>
+          </div>
+          <div className='answer-section'>
+            <button onClick={() => setStarted(true)}>Começar!</button>
+          </div>
+        </div>
+        <img className='app-img' src='nei2020.PNG'></img>
+      </>
     );
   }
 }

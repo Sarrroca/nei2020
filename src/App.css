@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 .app {
   background-color: #252d4a;
   width: 600px;
-  min-height: 400px;
   height: min-content;
   border-radius: 15px;
   padding: 20px;
@@ -9,6 +10,11 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+}
+
+.app-img {
+  width: 600px;
+  margin: 20px;
 }
 
 .score-section {
@@ -25,14 +31,17 @@
 
 .question-count {
   margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .question-count span {
-  font-size: 28px;
+  font-size: 32px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .question-text {
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .timer-text {
@@ -55,16 +64,18 @@
 
 button {
   width: 100%;
-  font-size: 16px;
+  font-size: 32px;
   color: #ffffff;
-  background-color: #252d4a;
+  background-color: #680000;
   border-radius: 15px;
   display: flex;
-  padding: 5px;
-  justify-content: flex-start;
+  padding: 10px;
+  font-weight: bold;
+  justify-content: center;
   align-items: center;
   border: 5px solid #234668;
   cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .correct {

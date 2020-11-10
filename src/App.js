@@ -2,8 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 
+function getRandomSubarray(arr, size) {
+  var shuffled = arr.slice(0)
+  for(let i = shuffled.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * i)
+    const temp = shuffled[i]
+    shuffled[i] = shuffled[j]
+    shuffled[j] = temp
+  }
+  return shuffled.slice(0, size);
+}
+
 function App() {
-	const questions = [
+  const numQuestions = 2;
+
+	const questionSet = [
 		{
 			questionText: 'What is the capital of France?',
 			answerOptions: [
@@ -40,47 +53,78 @@ function App() {
 				{ answerText: '7', isCorrect: true },
 			],
 		},
-	];
+  ];
+  
+  const [questions, _] = useState(getRandomSubarray(questionSet, numQuestions));
 
+  const [isStarted, setStarted] = useState(false);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
-	const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
+  const [lastWasCorrect, setLastCorrect] = useState(false);
+  const [showLastAnswer, setShowLastAnswer] = useState(false);
 
 	const handleAnswerOptionClick = (isCorrect) => {
+    setShowLastAnswer(true);
 		if (isCorrect) {
-			setScore(score + 1);
-		}
+      setScore(score + 1);
+      setLastCorrect(true);
+    }
+    else {
+      setLastCorrect(false);
+    }
+  };
+  
+  const handleNextQuestionClick = () => {
+    setShowLastAnswer(false);
 
-		const nextQuestion = currentQuestion + 1;
+    const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);
 		}
-	};
-	return (
-		<div className='app'>
-			{showScore ? (
-				<div className='score-section'>
-					You scored {score} out of {questions.length}
-				</div>
-			) : (
-				<>
-					<div className='question-section'>
-						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
-						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
-					</div>
-					<div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-						))}
-					</div>
-				</>
-			)}
-		</div>
-	);
+  };
+
+  if (isStarted) {
+    return (
+      <div className='app'>
+        {showScore ? (
+          <div className='score-section'>
+            {score > questions.length/2 &&
+              <>Parab&eacute;ns!</>
+            } Acertaste {score} em {questions.length}!
+          </div>
+        ) : (
+          <>
+            <div className='question-section'>
+              <div className='question-count'>
+                <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
+              </div>
+              <div className='question-text'>{questions[currentQuestion].questionText}</div>
+            </div>
+            <div className='answer-section'>
+              {showLastAnswer ? (
+                <button onClick={() => handleNextQuestionClick()}>Pr&oacute;xima pergunta!</button>
+              ) : (
+                questions[currentQuestion].answerOptions.map((answerOption) => (
+                  <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                ))
+              )}
+            </div>
+          </>
+        )}
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className='app'>
+        Bem vindo!
+        <button onClick={() => setStarted(true)}>Começar!</button>
+      </div>
+    );
+  }
 }
 
 export default App;

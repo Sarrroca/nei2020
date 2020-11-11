@@ -113,7 +113,7 @@ function App() {
                 </p>
                 <div className='question-img'><img src={sarImg} /></div>
                 <p>
-                Estas imagens são diferentes das ópticas uma vez que não têm côr, e apresentam uma textura que depende da zona observada. A grande vantagem destas imagens é funcionarem quer seja de dia ou de noite ou em dias nublados. A ESA tem um conjunto de satélites Sentinel que fornecem vários tipos de imagens de satélite através do programa Copernicus (gratuíto).
+                Estas imagens são diferentes das ópticas uma vez que não têm côr, e apresentam uma textura que depende da zona observada. A grande vantagem destas imagens é funcionarem quer seja de dia ou de noite ou em dias nublados. A ESA tem um conjunto de satélites Sentinel que fornecem vários tipos de imagens de satélite através do programa <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus">Copernicus</a> (gratuíto).
                 </p>
               </div>
             </div>

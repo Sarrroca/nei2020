@@ -102,7 +102,6 @@ button {
   border-radius: 15px;
   display: flex;
   padding: 10px;
-  font-weight: bold;
   justify-content: center;
   align-items: center;
   border: 8px solid #FFD166;
@@ -183,4 +182,12 @@ button:focus {
 
 button svg {
   margin-right: 5px;
+}
+
+.start-btn {
+  background-color: #06D6A0;
+}
+
+.start-btn:hover {
+  background-color: rgb(6, 255, 110);
 }

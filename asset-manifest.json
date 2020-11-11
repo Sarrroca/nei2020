@@ -1,23 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.58cd8000.chunk.css",
-    "main.js": "/static/js/main.ee9ec12d.chunk.js",
-    "main.js.map": "/static/js/main.ee9ec12d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f652817b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f652817b.js.map",
-    "static/js/2.3bef5a24.chunk.js": "/static/js/2.3bef5a24.chunk.js",
-    "static/js/2.3bef5a24.chunk.js.map": "/static/js/2.3bef5a24.chunk.js.map",
-    "static/js/3.e0cb46e3.chunk.js": "/static/js/3.e0cb46e3.chunk.js",
-    "static/js/3.e0cb46e3.chunk.js.map": "/static/js/3.e0cb46e3.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.58cd8000.chunk.css.map": "/static/css/main.58cd8000.chunk.css.map",
-    "static/js/2.3bef5a24.chunk.js.LICENSE.txt": "/static/js/2.3bef5a24.chunk.js.LICENSE.txt",
-    "static/media/logo.103b5fa1.svg": "/static/media/logo.103b5fa1.svg"
+    "main.css": "/nei2020/static/css/main.948420f3.chunk.css",
+    "main.js": "/nei2020/static/js/main.1034b326.chunk.js",
+    "main.js.map": "/nei2020/static/js/main.1034b326.chunk.js.map",
+    "runtime-main.js": "/nei2020/static/js/runtime-main.c8f565ac.js",
+    "runtime-main.js.map": "/nei2020/static/js/runtime-main.c8f565ac.js.map",
+    "static/js/2.3bef5a24.chunk.js": "/nei2020/static/js/2.3bef5a24.chunk.js",
+    "static/js/2.3bef5a24.chunk.js.map": "/nei2020/static/js/2.3bef5a24.chunk.js.map",
+    "static/js/3.e0cb46e3.chunk.js": "/nei2020/static/js/3.e0cb46e3.chunk.js",
+    "static/js/3.e0cb46e3.chunk.js.map": "/nei2020/static/js/3.e0cb46e3.chunk.js.map",
+    "index.html": "/nei2020/index.html",
+    "static/css/main.948420f3.chunk.css.map": "/nei2020/static/css/main.948420f3.chunk.css.map",
+    "static/js/2.3bef5a24.chunk.js.LICENSE.txt": "/nei2020/static/js/2.3bef5a24.chunk.js.LICENSE.txt",
+    "static/media/a1.a2beeb21.png": "/nei2020/static/media/a1.a2beeb21.png",
+    "static/media/a2.12523243.png": "/nei2020/static/media/a2.12523243.png",
+    "static/media/a3.a66528bc.png": "/nei2020/static/media/a3.a66528bc.png",
+    "static/media/a4.8fccfc55.png": "/nei2020/static/media/a4.8fccfc55.png",
+    "static/media/app-img.2eb378ad.png": "/nei2020/static/media/app-img.2eb378ad.png",
+    "static/media/checked-tick.88f7ca27.svg": "/nei2020/static/media/checked-tick.88f7ca27.svg",
+    "static/media/cross.64ac5b6d.svg": "/nei2020/static/media/cross.64ac5b6d.svg",
+    "static/media/q.1737a19b.png": "/nei2020/static/media/q.1737a19b.png",
+    "static/media/q.23f67a33.png": "/nei2020/static/media/q.23f67a33.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.f652817b.js",
+    "static/js/runtime-main.c8f565ac.js",
     "static/js/2.3bef5a24.chunk.js",
-    "static/css/main.58cd8000.chunk.css",
-    "static/js/main.ee9ec12d.chunk.js"
+    "static/css/main.948420f3.chunk.css",
+    "static/js/main.1034b326.chunk.js"
   ]
 }

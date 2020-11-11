@@ -10,6 +10,8 @@ A atividade foi desenvolvida por:
 - Helena Cruz
 - Rui Duarte
 
+A aplicação encontra-se disponível [aqui](https://ver-a-terra.inesc-id.pt/).
+
 ## Getting Started with NEI2020
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

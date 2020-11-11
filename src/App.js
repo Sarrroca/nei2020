@@ -1,17 +1,9 @@
 import './App.css';
-import appImg from './assets/app-img.png';
+import appImg from './assets/app-img.svg';
+import tickImg from './assets/checked-tick.svg';
+import crossImg from './assets/cross.svg';
+import questionSet from './questions';
 import React, { useState } from 'react';
-
-import q01q  from './assets/questions/01/q.png';
-import q01a1 from './assets/questions/01/a1.png';
-import q01a2 from './assets/questions/01/a2.png';
-import q01a3 from './assets/questions/01/a3.png';
-import q01a4 from './assets/questions/01/a4.png';
-import q02q  from './assets/questions/02/q.png';
-import q02a1 from './assets/questions/02/a1.png';
-import q02a2 from './assets/questions/02/a2.png';
-import q02a3 from './assets/questions/02/a3.png';
-import q02a4 from './assets/questions/02/a4.png';
 
 function getRandomSubarray(arr, size) {
   var shuffled = arr.slice(0)
@@ -24,49 +16,33 @@ function getRandomSubarray(arr, size) {
   return shuffled.slice(0, size);
 }
 
-function App() {
-  const numQuestions = 2;
+function generateAnswerSet(question, size) {
+  var ans = getRandomSubarray(Array.from(questionSet.keys()), size);
+  while (!ans.includes(question)) {
+    ans = getRandomSubarray(Array.from(questionSet.keys()), size);
+  }
+  return ans;
+}
 
-	const questionSet = [
-		{
-      questionText: 'Identifica qual a imagem correspondente a um meio urbano.',
-      questionImg: q01q,
-			answerOptions: [
-				{ img: q01a1, isCorrect: false },
-				{ img: q01a2, isCorrect: true },
-				{ img: q01a3, isCorrect: false },
-				{ img: q01a4, isCorrect: false },
-			],
-		},
-		{
-      questionText: 'Identifica qual a imagem correspondente a um meio rural.',
-      questionImg: q02q,
-			answerOptions: [
-				{ img: q02a1, isCorrect: false },
-				{ img: q02a2, isCorrect: false },
-				{ img: q02a3, isCorrect: false },
-				{ img: q02a4, isCorrect: true },
-			],
-		},
-  ];
+function App() {
+  const numQuestions = 6;
+  const numAnswers = 4;
   
-  const [questions, _] = useState(getRandomSubarray(questionSet, numQuestions));
+  const [questions] = useState(getRandomSubarray(Array.from(questionSet.keys()), numQuestions));
 
   const [isStarted, setStarted] = useState(false);
-	const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answerSet, setAnswerSet] = useState(generateAnswerSet(questions[0], numAnswers));
 	const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [lastWasCorrect, setLastCorrect] = useState(false);
+  const [lastAnswer, setLastAnswer] = useState(false);
   const [showLastAnswer, setShowLastAnswer] = useState(false);
 
-	const handleAnswerOptionClick = (isCorrect) => {
+	const handleAnswerOptionClick = (answerOption) => {
     setShowLastAnswer(true);
-		if (isCorrect) {
+    setLastAnswer(answerOption);
+		if (answerOption === questions[currentQuestion]) {
       setScore(score + 1);
-      setLastCorrect(true);
-    }
-    else {
-      setLastCorrect(false);
     }
   };
   
@@ -75,7 +51,8 @@ function App() {
 
     const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
+      setCurrentQuestion(nextQuestion);
+      setAnswerSet(generateAnswerSet(questions[nextQuestion], numAnswers));
 		} else {
 			setShowScore(true);
 		}
@@ -89,46 +66,86 @@ function App() {
             <div className='question-count'>
               <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
             </div>
-            <div className='question-img'>
-              <img src={questions[currentQuestion].questionImg} />
+            <div className='question-text'>{questionSet[questions[currentQuestion]].questionText}</div>
+            <div className='show-answer'>
+              <div className='show-answer-imgs'>
+              {lastAnswer === questions[currentQuestion] ? (
+                <>
+                  <div className='question-img'>
+                    <img className='correct' src={questionSet[questions[currentQuestion]].answerImg} />
+                  </div>
+                  <div className='question-img'>
+                    <img className='tick' src={tickImg} />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className='question-img'>
+                    <img src={questionSet[questions[currentQuestion]].answerImg} />
+                  </div>
+                  <div className='question-img'>
+                    <img className='incorrect' src={questionSet[lastAnswer].answerImg} />
+                  </div>
+                  <div className='question-img'>
+                    <img className='cross' src={crossImg} />
+                  </div>
+                </>
+              )}
+              </div>
+              <div className='show-answer-explain'>
+                <div className='show-answer-text'>
+                  {questionSet[questions[currentQuestion]].answerText}
+                </div>
+                <div className='question-img'>
+                  <img src={questionSet[questions[currentQuestion]].sarImg} />
+                </div>
+              </div>
             </div>
-            <div className='question-text'>{questions[currentQuestion].questionText}</div>
           </div>
           <div className='answer-section'>
-            <button onClick={() => handleNextQuestionClick()}>Pr&oacute;xima pergunta!</button>
+            <button onClick={() => handleNextQuestionClick()}>
+              {currentQuestion + 1 < questions.length ? (
+                <>Pr&oacute;xima pergunta!</>
+              ) : (
+                <>Ver pontua&ccedil;&atilde;o!</>
+              )}
+            </button>
           </div>
         </div>
       );
     }
     else {
-      return (
-        <div className='app'>
-          {showScore ? (
+      if (showScore) {
+        return (
+          <div className='app'>
             <div className='score-section'>
               {score > questions.length/2 &&
                 <>Parab&eacute;ns!</>
               } Acertaste {score} em {questions.length}!
             </div>
-          ) : (
-            <>
-              <div className='question-section'>
-                <div className='question-count'>
-                  <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
-                </div>
-                <div className='question-img'>
-                  <img src={questions[currentQuestion].questionImg} />
-                </div>
-                <div className='question-text'>{questions[currentQuestion].questionText}</div>
+          </div>
+        );
+      }
+      else {
+        return (
+          <div className='app'>
+            <div className='question-section'>
+              <div className='question-count'>
+                <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
               </div>
-              <div className='answer-section'>
-                {questions[currentQuestion].answerOptions.map((answerOption) => (
-                  <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} style={{backgroundImage: `url(${answerOption.img})`}} />
-                ))}
+              <div className='question-img'>
+                <img src={questionSet[questions[currentQuestion]].questionImg} />
               </div>
-            </>
-          )}
-        </div>
-      );
+              <div className='question-text'>{questionSet[questions[currentQuestion]].questionText}</div>
+            </div>
+            <div className='answer-section'>
+              {answerSet.map((answerOption) => (
+                <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption)} style={{backgroundImage: `url(${questionSet[answerOption].answerImg})`}} />
+              ))}
+            </div>
+          </div>
+        );
+      }
     }
   }
   else {

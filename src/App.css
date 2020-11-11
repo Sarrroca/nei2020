@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .app {
-  background-color: #252d4a;
+  background-color: #118AB2;
   width: 800px;
   height: min-content;
   border-radius: 15px;
@@ -50,7 +50,7 @@
 .question-img img {
   width: 75%;
   border-radius: 15px;
-  border: 8px solid #19b43f;
+  border: 8px solid #06D6A0;
 }
 
 .question-text {
@@ -79,14 +79,14 @@ button {
   width: 100%;
   font-size: 32px;
   color: #ffffff;
-  background-color: #680000;
+  background-color: #EF476F;
   border-radius: 15px;
   display: flex;
   padding: 10px;
   font-weight: bold;
   justify-content: center;
   align-items: center;
-  border: 8px solid #234668;
+  border: 8px solid #FFD166;
   cursor: pointer;
   font-family: 'Permanent Marker', cursive;
   margin: 2px;
@@ -98,17 +98,47 @@ button {
   background-position: center;
 }
 
-.correct {
-  background-color: #2f922f;
+img.correct {
+  border-color: rgb(6, 255, 110);
 }
 
-.incorrect {
-  background-color: #ff3333;
+img.incorrect {
+  border-color: #CE123E;
+}
+
+.show-answer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.show-answer-imgs {
+  display: flex;
+  flex-direction: row;
+}
+
+.show-answer-explain {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+img.tick {
+  width: 200px;
+  border: none;
+  margin: 30px;
+}
+
+img.cross {
+  width: 100px;
+  border: none;
+  margin: 30px;
 }
 
 button:hover {
-  background-color: #c20000;
-  border-color: #19b43f;
+  background-color: #CE123E;
+  border-color: #FFBC1F;
 }
 
 button:focus {

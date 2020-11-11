@@ -75,7 +75,7 @@ function App() {
           <div className='app'>
             <div className='question-section'>
               <div className='question-count'>
-                <span>Bem-vindo ao quiz V&ecirc; a Terra!</span>
+                <span>Bem-vindo ao quiz "V&ecirc; a Terra!"</span>
               </div>
               <div className='question-text'>
                 <p>

@@ -97,7 +97,7 @@ function App() {
                   {questionSet[questions[currentQuestion]].answerText}
                 </div>
                 <div className='question-img'>
-                  <img src={questionSet[questions[currentQuestion]].sarImg} />
+                  <img className='sar-img' src={questionSet[questions[currentQuestion]].sarImg} />
                 </div>
               </div>
             </div>
@@ -117,13 +117,19 @@ function App() {
     else {
       if (showScore) {
         return (
-          <div className='app'>
-            <div className='score-section'>
-              {score > questions.length/2 &&
-                <>Parab&eacute;ns!</>
-              } Acertaste {score} em {questions.length}!
+          <>
+            <div className='app'>
+              <div className='score-section'>
+                {score > questions.length/2 &&
+                  <>Parab&eacute;ns!</>
+                } Acertaste {score} em {questions.length}!
+              </div>
+              <div className='answer-section'>
+                <button onClick={() => window.location.reload(false)}>Jogar outra vez!</button>
+              </div>
             </div>
-          </div>
+            <img className='app-img' src={appImg} />
+          </>
         );
       }
       else {
@@ -157,7 +163,12 @@ function App() {
               <span>Bem-vindo ao quiz V&ecirc; a Terra!</span>
             </div>
             <div className='question-text'>
-              Aqui vais poder testar os teus conhecimentos sobre a forma como os satélites veem a Terra. Os satélites são muito úteis porque nos permitem obter imagens da Terra, no entanto, eles não veem a Terra como nós. Há várias tecnologias de captura de imagem que fazem com que as imagens de satélite sejam diferentes das fotografias que conhecemos. Achas que consegues adivinhar que imagem de satélite corresponde a que zona?
+              <p>
+              As imagens da Terra vistas do espaço são obtidas por satélites. Os satélites usam várias tecnologias para obter imagens da superfície da Terra, algumas das quais pouco parecidas com as fotografias que conhecemos, mas são importantes para estudar a superfície terrestre...
+              </p>
+              <p>
+              Neste jogo vamos testar os teus conhecimentos sobre as imagens produzidas pelos satélites.
+              </p>
             </div>
           </div>
           <div className='answer-section'>

@@ -2,6 +2,7 @@ import './App.css';
 import appImg from './assets/app-img.svg';
 import tickImg from './assets/checked-tick.svg';
 import crossImg from './assets/cross.svg';
+import trophyImg from './assets/trophy.svg';
 import questionSet from './questions';
 import React, { useState } from 'react';
 
@@ -117,19 +118,30 @@ function App() {
     else {
       if (showScore) {
         return (
-          <>
-            <div className='app'>
-              <div className='score-section'>
-                {score > questions.length/2 &&
-                  <>Parab&eacute;ns!</>
-                } Acertaste {score} em {questions.length}!
+          <div className='app'>
+            {score > questions.length/2 &&
+              <div className='trophy-section'>
+                <img src={trophyImg} />
               </div>
-              <div className='answer-section'>
-                <button onClick={() => window.location.reload(false)}>Jogar outra vez!</button>
-              </div>
+            }
+            <div className='score-section'>
+              {score > questions.length/2 &&
+                <>Parab&eacute;ns!</>
+              } Acertaste {score} em {questions.length}!
             </div>
-            <img className='app-img' src={appImg} />
-          </>
+            <div className='credits-section'>
+              <p>Obrigado por teres participado e esperemos que tenhas gostado!</p>
+              <p>Esta actividade foi criada no âmbito do projecto de investigação <a href="https://www.inesc-id.pt/projects/IE01018/">SARRROCA</a> (PTDC/EEI-HAC/31819/2017) em execução no <a href="https://www.inesc-id.pt/">INESC-ID</a>, financiado pela FCT, e foi desenvolvida por:</p>
+              <ul>
+                <li>Duarte Galvão</li>
+                <li>Helena Cruz</li>
+                <li>Rui Duarte</li>
+              </ul>
+            </div>
+            <div className='answer-section'>
+              <button onClick={() => window.location.reload(false)}>Jogar outra vez!</button>
+            </div>
+          </div>
         );
       }
       else {

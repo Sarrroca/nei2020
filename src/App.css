@@ -21,6 +21,25 @@
   display: flex;
   font-size: 24px;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.credits-section {
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
+  align-items: flex-start;
+  justify-content: start;
+  margin-bottom: 20px;
+}
+
+.credits-section p {
+  margin: 10px;
+}
+
+.credits-section ul {
+  margin: 10px;
 }
 
 /* QUESTION/TIMER/LEFT SECTION */
@@ -139,6 +158,18 @@ img.cross {
   width: 100px;
   border: none;
   margin: 30px;
+}
+
+.trophy-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trophy-section img {
+  width: 200px;
+  margin-bottom: 20px;
 }
 
 button:hover {

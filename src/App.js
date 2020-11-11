@@ -6,6 +6,8 @@ import trophyImg from './assets/trophy.svg';
 import earthImg from './assets/earth.png';
 import satImg from './assets/sat.png';
 import sarImg from './assets/sar_terreno_imagem.png';
+import neiImg from './assets/NEI.png';
+import duarteImg from './assets/team/duarte.galvao.jpg';
 import questionSet from './questions';
 import React, { useState } from 'react';
 
@@ -72,10 +74,13 @@ function App() {
     case screen.BEGIN:
       return (
         <>
+          <div className='nei-img'>
+            <img src={neiImg} />
+          </div>
           <div className='app'>
             <div className='question-section'>
               <div className='question-count'>
-                <span>Bem-vindo ao quiz "V&ecirc; a Terra!"</span>
+                <span>Bem-vindo ao quiz "V&ecirc; a Terra"!</span>
               </div>
               <div className='question-text'>
                 <p>
@@ -98,6 +103,9 @@ function App() {
     case screen.MORE_INFO:
       return (
         <>
+          <div className='nei-img'>
+            <img src={neiImg} />
+          </div>
           <div className='app'>
             <div className='question-section'>
               <div className='question-count'>
@@ -127,26 +135,35 @@ function App() {
 
     case screen.QUESTION:
       return (
-        <div className='app'>
-          <div className='question-section'>
-            <div className='question-count'>
-              <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
-            </div>
-            <div className='question-img'>
-              <img src={questionSet[questions[currentQuestion]].questionImg} />
-            </div>
-            <div className='question-text'>{questionSet[questions[currentQuestion]].questionText}</div>
+        <>
+          <div className='nei-img'>
+            <img src={neiImg} />
           </div>
-          <div className='answer-section'>
-            {answerSet.map((answerOption) => (
-              <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption)} style={{backgroundImage: `url(${questionSet[answerOption].answerImg})`}} />
-            ))}
+          <div className='app'>
+            <div className='question-section'>
+              <div className='question-count'>
+                <span>Pergunta {currentQuestion + 1}</span>/{questions.length}
+              </div>
+              <div className='question-img'>
+                <img src={questionSet[questions[currentQuestion]].questionImg} />
+              </div>
+              <div className='question-text'>{questionSet[questions[currentQuestion]].questionText}</div>
+            </div>
+            <div className='answer-section'>
+              {answerSet.map((answerOption) => (
+                <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption)} style={{backgroundImage: `url(${questionSet[answerOption].answerImg})`}} />
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       );
 
     case screen.ANSWER:
       return (
+        <>
+        <div className='nei-img'>
+          <img src={neiImg} />
+        </div>
         <div className='app'>
           <div className='question-section'>
             <div className='question-count'>
@@ -198,10 +215,15 @@ function App() {
             </button>
           </div>
         </div>
+        </>
       );
 
     case screen.SCORE:
       return (
+        <>
+        <div className='nei-img'>
+          <img src={neiImg} />
+        </div>
         <div className='app'>
           {score > questions.length/2 &&
             <div className='trophy-section'>
@@ -216,16 +238,26 @@ function App() {
           <div className='credits-section'>
             <p>Obrigado por teres participado e esperemos que tenhas gostado!</p>
             <p>Esta actividade foi criada no âmbito do projecto de investigação <a href="https://www.inesc-id.pt/projects/IE01018/">SARRROCA</a> (PTDC/EEI-HAC/31819/2017) em execução no <a href="https://www.inesc-id.pt/">INESC-ID</a>, financiado pela FCT, e foi desenvolvida por:</p>
-            <ul>
-              <li>Duarte Galvão</li>
-              <li>Helena Cruz</li>
-              <li>Rui Duarte</li>
-            </ul>
+            <div className='team-pics'>
+              <div className='team-pic'>
+                <div><img src={duarteImg} /></div>
+                <div>Duarte Galvão</div>
+              </div>
+              <div className='team-pic'>
+                <div><img src={duarteImg} /></div>
+                <div>Helena Cruz</div>
+              </div>
+              <div className='team-pic'>
+                <div><img src={duarteImg} /></div>
+                <div>Rui Duarte</div>
+              </div>
+            </div>
           </div>
           <div className='answer-section'>
             <button onClick={() => window.location.reload(false)}>Jogar outra vez!</button>
           </div>
         </div>
+        </>
       );
 
     default:

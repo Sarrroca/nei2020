@@ -191,3 +191,38 @@ button svg {
 .start-btn:hover {
   background-color: rgb(6, 255, 110);
 }
+
+.team-pics {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.team-pic {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-pic img {
+  width: 100%;
+  border-radius: 15px;
+  border: 8px solid #06D6A0;
+}
+
+.nei-img {
+  width: 800px;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nei-img img {
+  width: 30%;
+}

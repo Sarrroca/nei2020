@@ -2,6 +2,14 @@
 
 Actividade para a Noite Europeia dos Investigadores 2020.
 
+![](https://raw.githubusercontent.com/Sarrroca/nei2020/master/src/assets/app-img.svg)
+
+A atividade foi desenvolvida por:
+
+- Duarte Galvão
+- Helena Cruz
+- Rui Duarte
+
 ## Getting Started with NEI2020
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

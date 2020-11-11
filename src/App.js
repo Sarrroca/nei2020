@@ -39,10 +39,11 @@ function App() {
   const screen= {
     BEGIN: 0,
     MORE_INFO: 1,
-    QUESTION: 2,
-    ANSWER: 3,
-    SCORE: 4
-  }
+    SELECT_MODE: 2,
+    QUESTION: 3,
+    ANSWER: 4,
+    SCORE: 5,
+  };
   
   const [questions] = useState(getRandomSubarray(Array.from(questionSet.keys()), numQuestions));
 
@@ -51,6 +52,8 @@ function App() {
   const [answerSet, setAnswerSet] = useState(generateAnswerSet(questions[0], numAnswers));
   const [score, setScore] = useState(0);
   const [lastAnswer, setLastAnswer] = useState(false);
+
+  const [isHardMode, setHardMode] = useState(false);
 
 	const handleAnswerOptionClick = (answerOption) => {
     setLastAnswer(answerOption);
@@ -95,7 +98,7 @@ function App() {
             </div>
             <div className='answer-section'>
               <button onClick={() => setScreen(screen.MORE_INFO)}>Saber mais...</button>
-              <button className='start-btn' onClick={() => setScreen(screen.QUESTION)}>Começar!</button>
+              <button className='start-btn' onClick={() => setScreen(screen.SELECT_MODE)}>Começar!</button>
             </div>
           </div>
           <img className='app-img' src={appImg} />
@@ -132,7 +135,27 @@ function App() {
             </div>
             <div className='answer-section'>
               <button onClick={() => setScreen(screen.BEGIN)}>Voltar</button>
-              <button className='start-btn' onClick={() => setScreen(screen.QUESTION)}>Começar!</button>
+              <button className='start-btn' onClick={() => setScreen(screen.SELECT_MODE)}>Começar!</button>
+            </div>
+          </div>
+        </>
+      );
+
+    case screen.SELECT_MODE:
+      return (
+        <>
+          <div className='nei-img'>
+            <img src={neiImg} />
+          </div>
+          <div className='app'>
+            <div className='question-section'>
+              <div className='question-count'>
+                <span>Escolhe o modo:</span>
+              </div>
+            </div>
+            <div className='answer-section'>
+                <button style={{textAlign: 'center'}} className='start-btn' onClick={() => setScreen(screen.QUESTION)}>F&aacute;cil<br />(Imagens &Oacute;pticas)</button>
+                <button style={{textAlign: 'center'}} onClick={() => {setHardMode(true);setScreen(screen.QUESTION)}}>Dif&iacute;cil<br />(Imagens SAR)</button>
             </div>
           </div>
         </>
@@ -156,7 +179,7 @@ function App() {
             </div>
             <div className='answer-section'>
               {answerSet.map((answerOption) => (
-                <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption)} style={{backgroundImage: `url(${questionSet[answerOption].answerImg})`}} />
+                <button className='answer-choice' onClick={() => handleAnswerOptionClick(answerOption)} style={{backgroundImage: `url(${isHardMode ? questionSet[answerOption].sarImg : questionSet[answerOption].answerImg})`}} />
               ))}
             </div>
           </div>
@@ -180,7 +203,7 @@ function App() {
               {lastAnswer === questions[currentQuestion] ? (
                 <>
                   <div className='question-img'>
-                    <img className='correct' src={questionSet[questions[currentQuestion]].answerImg} />
+                    <img className='correct' src={isHardMode ? questionSet[questions[currentQuestion]].sarImg : questionSet[questions[currentQuestion]].answerImg} />
                   </div>
                   <div className='question-img'>
                     <img className='tick' src={tickImg} />
@@ -189,10 +212,10 @@ function App() {
               ) : (
                 <>
                   <div className='question-img'>
-                    <img src={questionSet[questions[currentQuestion]].answerImg} />
+                    <img src={isHardMode ? questionSet[questions[currentQuestion]].sarImg : questionSet[questions[currentQuestion]].answerImg} />
                   </div>
                   <div className='question-img'>
-                    <img className='incorrect' src={questionSet[lastAnswer].answerImg} />
+                    <img className='incorrect' src={isHardMode ? questionSet[lastAnswer].sarImg : questionSet[lastAnswer].answerImg} />
                   </div>
                   <div className='question-img'>
                     <img className='cross' src={crossImg} />
@@ -205,7 +228,7 @@ function App() {
                   {questionSet[questions[currentQuestion]].answerText}
                 </div>
                 <div className='question-img'>
-                  <img className='sar-img' src={questionSet[questions[currentQuestion]].sarImg} />
+                  <img className='sar-img' src={isHardMode ? questionSet[questions[currentQuestion]].answerImg : questionSet[questions[currentQuestion]].sarImg} />
                 </div>
               </div>
             </div>

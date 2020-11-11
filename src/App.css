@@ -10,11 +10,12 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .app-img {
   width: 800px;
-  margin: 20px;
+  margin-bottom: 50px;
 }
 
 .score-section {
@@ -201,7 +202,6 @@ button svg {
 }
 
 .team-pic {
-  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,7 +209,7 @@ button svg {
 }
 
 .team-pic img {
-  width: 100%;
+  width: 100px;
   border-radius: 15px;
   border: 8px solid #06D6A0;
 }

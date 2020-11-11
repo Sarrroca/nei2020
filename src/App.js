@@ -8,6 +8,8 @@ import satImg from './assets/sat.png';
 import sarImg from './assets/sar_terreno_imagem.png';
 import neiImg from './assets/NEI.png';
 import duarteImg from './assets/team/duarte.galvao.jpg';
+import helenaImg from './assets/team/helena.cruz.jpeg';
+import ruiImg from './assets/team/rui.duarte.png';
 import questionSet from './questions';
 import React, { useState } from 'react';
 
@@ -117,11 +119,14 @@ function App() {
                 </p>
                 <div className='question-img'><img src={earthImg} /></div>
                 <p>
-                Para além das imagens ópticas, existem outros satélites que geram imagens com base nos ecos dos sinais electromagnéticos refletidos pela superfície terrestre, de forma semelhante a um radar. É como se apontassem um foco luminoso e registrassem as reflexões observadas nos diferentes materiais.
+                Para além destas imagens, existem satélites que geram imagens de outra forma. Estes satélites emitem ondas que, ao atingirem a superfície terrestre, são refletidas. Consoante o que atingem, água, vegetação, estradas ou telhados, estas ondas são refletidas de forma diferente. Com os ecos das ondas, é possível gerar imagens. Estas imagens são diferentes daquelas a que estamos habituados, não têm cor e têm texturas que dependem do que atingem.
                 </p>
                 <div className='question-img'><img src={sarImg} /></div>
                 <p>
-                Estas imagens são diferentes das ópticas uma vez que não têm côr, e apresentam uma textura que depende da zona observada. A grande vantagem destas imagens é funcionarem quer seja de dia ou de noite ou em dias nublados. A ESA tem um conjunto de satélites Sentinel que fornecem vários tipos de imagens de satélite através do programa <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus">Copernicus</a> (gratuíto).
+                A maior vantagem deste tipo de satélites é que consegue obter estas imagens a qualquer hora do dia, mesmo de noite, independentemente das condições meteorológicas, esteja a chover ou nevoeiro.
+                </p>
+                <p>
+                A ESA tem um conjunto de satélites Sentinel que fornecem vários tipos de imagens de satélite através do programa <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus">Copernicus</a>.
                 </p>
               </div>
             </div>
@@ -244,11 +249,11 @@ function App() {
                 <div>Duarte Galvão</div>
               </div>
               <div className='team-pic'>
-                <div><img src={duarteImg} /></div>
+                <div><img src={helenaImg} /></div>
                 <div>Helena Cruz</div>
               </div>
               <div className='team-pic'>
-                <div><img src={duarteImg} /></div>
+                <div><img src={ruiImg} /></div>
                 <div>Rui Duarte</div>
               </div>
             </div>

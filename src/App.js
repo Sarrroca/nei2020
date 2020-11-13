@@ -155,7 +155,7 @@ function App() {
             </div>
             <div className='answer-section'>
                 <button style={{textAlign: 'center'}} className='start-btn' onClick={() => setScreen(screen.QUESTION)}>F&aacute;cil<br />(Imagens &Oacute;pticas)</button>
-                <button style={{textAlign: 'center'}} onClick={() => {setHardMode(true);setScreen(screen.QUESTION)}}>Dif&iacute;cil<br />(Imagens SAR)</button>
+                <button style={{textAlign: 'center'}} onClick={() => {setHardMode(true);setScreen(screen.QUESTION)}}>Dif&iacute;cil<br />(Imagens Radar)</button>
             </div>
           </div>
         </>

@@ -3,7 +3,7 @@ import appImg from './assets/app-img.svg';
 import tickImg from './assets/checked-tick.svg';
 import crossImg from './assets/cross.svg';
 import trophyImg from './assets/trophy.svg';
-import earthImg from './assets/earth.png';
+import earthImg from './assets/ATSIII_10NOV67_153107.jpg';
 import satImg from './assets/sat.png';
 import sarImg from './assets/sar_terreno_imagem.png';
 import neiImg from './assets/NEI.png';
@@ -120,7 +120,10 @@ function App() {
                 <p>
                 As imagens obtidas de satélites são habitualmente ópticas, ou seja, semelhantes a uma fotografia tirada com máquina fotográfica ou telemóvel. 
                 </p>
-                <div className='question-img'><img src={earthImg} /></div>
+                <div className='question-img'>
+                  <img src={earthImg} />
+                  <p>Primeira fotografia a cores da Terra, tirada em 1967 pelo satélite geoestacionário ATS-3.</p>
+                </div>
                 <p>
                 Para além destas imagens, existem satélites que geram imagens de outra forma. Estes satélites emitem ondas que, ao atingirem a superfície terrestre, são refletidas. Consoante o que atingem, água, vegetação, estradas ou telhados, estas ondas são refletidas de forma diferente. Com os ecos das ondas, é possível gerar imagens. Estas imagens são diferentes daquelas a que estamos habituados, não têm cor e têm texturas que dependem do que atingem.
                 </p>

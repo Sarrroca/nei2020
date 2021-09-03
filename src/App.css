@@ -220,11 +220,18 @@ button svg {
   width: 800px;
   display: flex;
   justify-content: start;
-  align-items: flex-start;
+  align-items: baseline;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .nei-img img {
   width: 30%;
+}
+
+.nei-img span {
+  margin-left: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  color: black;
 }

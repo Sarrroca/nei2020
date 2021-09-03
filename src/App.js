@@ -81,6 +81,7 @@ function App() {
         <>
           <div className='nei-img'>
             <img src={neiImg} />
+            <span>2020</span>
           </div>
           <div className='app'>
             <div className='question-section'>
@@ -110,6 +111,7 @@ function App() {
         <>
           <div className='nei-img'>
             <img src={neiImg} />
+            <span>2020</span>
           </div>
           <div className='app'>
             <div className='question-section'>
@@ -149,6 +151,7 @@ function App() {
         <>
           <div className='nei-img'>
             <img src={neiImg} />
+            <span>2020</span>
           </div>
           <div className='app'>
             <div className='question-section'>
@@ -169,6 +172,7 @@ function App() {
         <>
           <div className='nei-img'>
             <img src={neiImg} />
+            <span>2020</span>
           </div>
           <div className='app'>
             <div className='question-section'>
@@ -194,6 +198,7 @@ function App() {
         <>
         <div className='nei-img'>
           <img src={neiImg} />
+          <span>2020</span>
         </div>
         <div className='app'>
           <div className='question-section'>
@@ -254,6 +259,7 @@ function App() {
         <>
         <div className='nei-img'>
           <img src={neiImg} />
+          <span>2020</span>
         </div>
         <div className='app'>
           {score > questions.length/2 &&
